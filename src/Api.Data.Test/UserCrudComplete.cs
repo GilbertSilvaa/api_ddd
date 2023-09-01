@@ -57,8 +57,8 @@ namespace Api.Data.Test
             Assert.Equal(_registerSelected.Email, _userLogin.Email);
             Assert.Equal(_registerSelected.Name, _userLogin.Name);
 
-            var _removed = await _repository.DeleteAsync(_registerSelected.Id);
-            Assert.True(_removed);
+            var _isDeleted = await _repository.DeleteAsync(_registerSelected.Id);
+            Assert.True(_isDeleted);
         }
     }
 }
