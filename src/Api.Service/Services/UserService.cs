@@ -27,10 +27,10 @@ namespace Api.Service.Services
         public async Task<UserDto> Get(Guid id)
         {
             var userEntity = await _repository.SelectAsync(id);
-            return _mapper.Map<UserDto>(userEntity);
+            return _mapper.Map<UserDto>(userEntity) ?? new UserDto();
         }
 
-        public async Task<UserCreateResultDto> Post(UserDto user)
+        public async Task<UserCreateResultDto> Post(UserCreateDto user)
         {
             var userModel = _mapper.Map<UserModel>(user);
             var userEntity = _mapper.Map<UserEntity>(userModel);
@@ -39,7 +39,7 @@ namespace Api.Service.Services
             return _mapper.Map<UserCreateResultDto>(userResult);
         }
 
-        public async Task<UserUpdateResultDto> Put(UserDto user)
+        public async Task<UserUpdateResultDto> Put(UserUpdateDto user)
         {
             var userModel = _mapper.Map<UserModel>(user);
             var userEntity = _mapper.Map<UserEntity>(userModel);
