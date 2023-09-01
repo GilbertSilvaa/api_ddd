@@ -15,7 +15,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
-            string conn = "Server=localhost;Database=ApiDotNet;Uid=root;Pwd=Ringkyu777#;";
+            string conn = Environment.GetEnvironmentVariable("DB_CONNECTION")!;
             serviceCollection.AddDbContext<MyContext>(options =>
                 options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
         }
