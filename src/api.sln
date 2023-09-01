@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "service", "Api.Service\serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Data.Test", "Api.Data.Test\Api.Data.Test.csproj", "{8DED765F-CD31-4BEE-9A10-E504F8673632}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Service.Test", "Api.Service.Test\Api.Service.Test.csproj", "{9A7E43E5-66A2-40F7-A2CA-44CF0CBC98AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{8DED765F-CD31-4BEE-9A10-E504F8673632}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DED765F-CD31-4BEE-9A10-E504F8673632}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DED765F-CD31-4BEE-9A10-E504F8673632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7E43E5-66A2-40F7-A2CA-44CF0CBC98AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7E43E5-66A2-40F7-A2CA-44CF0CBC98AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7E43E5-66A2-40F7-A2CA-44CF0CBC98AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7E43E5-66A2-40F7-A2CA-44CF0CBC98AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
