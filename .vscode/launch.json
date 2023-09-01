@@ -20,7 +20,10 @@
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
       },
       "env": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION": "Server=localhost;Database=ApiDotNet;Uid=root;Pwd=Ringkyu777#;",
+        "DATABASE": "MYSQL",
+        "MIGRATION": "NO_APPLY"
       },
       "sourceFileMap": {
         "/Views": "${workspaceFolder}/Views"
