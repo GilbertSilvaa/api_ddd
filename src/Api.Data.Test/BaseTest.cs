@@ -20,7 +20,7 @@ namespace Api.Data.Test
             string dbName = Guid.NewGuid().ToString().Replace("-", string.Empty);
             _dbName = $"dbApiTest_{dbName}";
 
-            string conn = $"Persist Security Server=localhost;Database={_dbName};Uid=root;Pwd=Ringkyu777#;";
+            string conn = $"Server=localhost;Database={_dbName};Uid=root;Pwd=Ringkyu777#;";
             var serviceColletion = new ServiceCollection();
 
             serviceColletion.AddDbContext<MyContext>(o =>
