@@ -1,6 +1,5 @@
 using Api.Domain.Dtos;
 using Api.Domain.Interfaces.Services.User;
-using Api.Service.Test.User;
 using Moq;
 
 namespace Api.Service.Test.Login
