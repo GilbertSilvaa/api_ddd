@@ -1,46 +1,43 @@
+
 using Api.Application.Controllers;
 using Api.Domain.Dtos.User;
 using Api.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
-namespace Api.Application.Test.User.WhenRequiredCreate
+namespace Api.Application.Test.User.WhenRequiredUpdate
 {
     public class ReturnBadRequest
     {
         private UsersController? _controller;
 
-        [Fact(DisplayName = "Is not possible execute created")]
-        public async Task IsNotPossibleCallControllerCreate()
+        [Fact(DisplayName = "Is not possible execute update")]
+        public async Task IsNotPossibleCallControllerUpdate()
         {
             var serviceMock = new Mock<IUserService>();
             var name = Faker.Name.FullName();
             var email = Faker.Internet.Email();
 
-            serviceMock.Setup(m => m.Post(It.IsAny<UserCreateDto>()))
-                .ReturnsAsync(new UserCreateResultDto
+            serviceMock.Setup(m => m.Put(It.IsAny<UserUpdateDto>()))
+                .ReturnsAsync(new UserUpdateResultDto
                 {
                     Id = Guid.NewGuid(),
                     Name = name,
                     Email = email,
-                    CreateAt = DateTime.UtcNow
+                    UpdateAt = DateTime.UtcNow
                 });
 
             _controller = new UsersController(serviceMock.Object);
-            _controller.ModelState.AddModelError("Name", "This field is required");
+            _controller.ModelState.AddModelError("Email", "This field is required");
 
-            Mock<IUrlHelper> url = new();
-            url.Setup(m => m.Link(It.IsAny<string>(), It.IsAny<object>()))
-                .Returns("http://localhost:4000/users/get");
-            _controller.Url = url.Object;
-
-            var userCreateDto = new UserCreateDto
+            var userUpdateDto = new UserUpdateDto
             {
+                Id = Guid.NewGuid(),
                 Name = name,
                 Email = email
             };
 
-            var result = await _controller.Post(userCreateDto);
+            var result = await _controller.Put(userUpdateDto);
             Assert.True(result is BadRequestObjectResult);
         }
     }
