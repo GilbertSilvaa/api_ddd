@@ -31,16 +31,16 @@ namespace Api.Service.Services
         {
             if (user == null || string.IsNullOrWhiteSpace(user.Email)) return new
             {
-                authenticated = false,
-                message = "Failed to authenticate user."
+                Authenticated = false,
+                Message = "Failed to authenticate user."
             };
 
             var baseUser = await _repository.FindByLogin(user.Email);
 
             if (baseUser == null) return new
             {
-                authenticated = false,
-                message = "Failed to authenticate user."
+                Authenticated = false,
+                Message = "Failed to authenticate user."
             };
 
             var identity = new ClaimsIdentity(
@@ -91,12 +91,12 @@ namespace Api.Service.Services
         {
             return new
             {
-                authenticated = true,
-                created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
-                accessToken = token,
-                userName = user.Email,
-                message = "User logged in successfully."
+                Authenticated = true,
+                Created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                Expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                AccessToken = token,
+                UserName = user.Email,
+                Message = "User logged in successfully."
             };
         }
     }
