@@ -28,6 +28,19 @@ builder.Services.AddSingleton(mapper);
 var signingConfigurations = new SigningConfigurations();
 builder.Services.AddSingleton(signingConfigurations);
 
+IWebHostEnvironment _environment = builder.Environment;
+
+if (_environment.IsEnvironment("Testing"))
+{
+    Environment.SetEnvironmentVariable("DB_CONNECTION",
+        "Server=localhost;Database=ApiDotNet;Uid=root;Pwd=Ringkyu777#;");
+    Environment.SetEnvironmentVariable("DATABASE", "MYSQL");
+    Environment.SetEnvironmentVariable("MIGRATION", "NO_APPLY");
+    Environment.SetEnvironmentVariable("Audience", "ExemploAudience");
+    Environment.SetEnvironmentVariable("Issuer", "ExemploIssuer");
+    Environment.SetEnvironmentVariable("Seconds", "12000");
+}
+
 // Config Jwt Token
 var tokenConfigurations = new TokenConfigurations();
 new ConfigureFromConfigurationOptions<TokenConfigurations>(
