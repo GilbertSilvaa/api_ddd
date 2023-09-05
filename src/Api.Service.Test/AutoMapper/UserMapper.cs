@@ -50,12 +50,12 @@ namespace Api.Service.Test.AutoMapper
             var _dtoList = Mapper.Map<List<UserDto>>(_entityList);
             Assert.True(_dtoList.Count() == _entityList.Count());
 
-            for (int i = 0; i < _dtoList.Count(); i++)
+            foreach (var (_dtoUser, i) in _dtoList.Select((value, i) => (value, i)))
             {
-                Assert.Equal(_dtoList[i].Id, _entityList[i].Id);
-                Assert.Equal(_dtoList[i].Name, _entityList[i].Name);
-                Assert.Equal(_dtoList[i].Email, _entityList[i].Email);
-                Assert.Equal(_dtoList[i].CreateAt, _entityList[i].CreateAt);
+                Assert.Equal(_dtoUser.Id, _entityList[i].Id);
+                Assert.Equal(_dtoUser.Name, _entityList[i].Name);
+                Assert.Equal(_dtoUser.Email, _entityList[i].Email);
+                Assert.Equal(_dtoUser.CreateAt, _entityList[i].CreateAt);
             }
 
             var _userUpdateResultDto = Mapper.Map<UserUpdateResultDto>(_entity);
