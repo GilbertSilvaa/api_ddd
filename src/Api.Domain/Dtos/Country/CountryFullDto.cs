@@ -2,7 +2,7 @@ using Api.Domain.Dtos.Uf;
 
 namespace Api.Domain.Dtos.Country
 {
-    public class CountyFullDto
+    public class CountryFullDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = null!;
