@@ -8,7 +8,7 @@ namespace Api.Data.Context
         public MyContext CreateDbContext(string[] args)
         {
             // usado para criar as Migrations
-            string conn = Environment.GetEnvironmentVariable("DB_CONNECTION")!;
+            string conn = "Server=localhost;Database=ApiDotNet;Uid=root;Pwd=Ringkyu777#";
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
             optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
 

@@ -19,7 +19,7 @@ namespace Api.Data.Implementations
         {
             var response = await _dataSet.FirstOrDefaultAsync(u => u.Email.Equals(email));
 
-            return response ?? null!;
+            return response!;
         }
     }
 }

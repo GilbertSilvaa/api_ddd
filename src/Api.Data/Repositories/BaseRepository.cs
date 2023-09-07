@@ -34,7 +34,7 @@ namespace Api.Data.Repositories
             {
                 var response = await _dataSet.SingleOrDefaultAsync(p => p.Id.Equals(id));
 
-                return response ?? null!;
+                return response!;
             }
             catch (Exception ex)
             {

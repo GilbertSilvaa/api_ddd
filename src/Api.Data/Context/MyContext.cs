@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Api.Data.Mapping;
 using Api.Domain.Entities;
+using Api.Data.Seeds;
 
 namespace Api.Data.Context
 {
@@ -15,6 +16,10 @@ namespace Api.Data.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
 
+            modelBuilder.Entity<UfEntity>(new UfMap().Configure);
+            modelBuilder.Entity<CountryEntity>(new CountryMap().Configure);
+            modelBuilder.Entity<CepEntity>(new CepMap().Configure);
+
             // create standard user
             modelBuilder.Entity<UserEntity>().HasData(
                 new UserEntity
@@ -26,6 +31,9 @@ namespace Api.Data.Context
                     UpdateAt = DateTime.UtcNow
                 }
             );
+
+            // create standards ufs
+            UfSeeds.Ufs(modelBuilder);
         }
     }
 }
