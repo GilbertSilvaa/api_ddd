@@ -1,6 +1,6 @@
 namespace Api.Domain.Dtos.Cep
 {
-    public class CepCreateResult
+    public class CepCreateResultDto
     {
         public Guid Id { get; set; }
         public string Cep { get; set; } = null!;
