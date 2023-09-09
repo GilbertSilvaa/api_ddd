@@ -34,7 +34,7 @@ namespace Api.Application.Test.User.WhenRequiredGetAll
             Assert.True(result is OkObjectResult);
 
             var resultValue = ((OkObjectResult)result).Value as List<UserDto>;
-            Assert.True(resultValue?.Count() == 5);
+            Assert.True(resultValue?.Count().Equals(5));
         }
     }
 }
