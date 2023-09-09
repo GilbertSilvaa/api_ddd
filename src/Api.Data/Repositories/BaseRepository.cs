@@ -5,7 +5,7 @@ using Api.Data.Context;
 
 namespace Api.Data.Repositories
 {
-    public class BaseRepository<T> : IRepository<T> where T : BaseEntity
+    public abstract class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
         protected readonly MyContext _context;
         private readonly DbSet<T> _dataSet;
