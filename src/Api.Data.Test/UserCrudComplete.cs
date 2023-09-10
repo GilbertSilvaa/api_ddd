@@ -55,15 +55,15 @@ namespace Api.Data.Test
             Assert.NotNull(_allRegisterList);
             Assert.True(_allRegisterList.Count() > 0);
 
-            // User delete in crud
-            var _isDeleted = await _repository.DeleteAsync(_registerSelected.Id);
-            Assert.True(_isDeleted);
-
             // User login method 
             var _userLogin = await _repository.FindByLogin(_registerSelected.Email);
             Assert.NotNull(_userLogin);
             Assert.Equal(_registerSelected.Email, _userLogin.Email);
             Assert.Equal(_registerSelected.Name, _userLogin.Name);
+
+            // User delete in crud
+            var _isDeleted = await _repository.DeleteAsync(_registerSelected.Id);
+            Assert.True(_isDeleted);
         }
     }
 }
