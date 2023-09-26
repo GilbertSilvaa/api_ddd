@@ -51,7 +51,7 @@ public class CountryService : ICountryService
     return _mapper.Map<CountryCreateResultDto>(result);
   }
 
-  public async Task<CountryUpdateResultDto> Put(CountryUpdateResultDto country)
+  public async Task<CountryUpdateResultDto> Put(CountryUpdateDto country)
   {
     var countryModel = _mapper.Map<CountryModel>(country);
     var countryEntity = _mapper.Map<CountryEntity>(countryModel);

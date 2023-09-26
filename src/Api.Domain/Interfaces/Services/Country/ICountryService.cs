@@ -9,7 +9,7 @@ namespace Api.Domain.Interfaces.Services.Country
         Task<CountryFullDto> GetFullByIBGE(int codIBGE);
         Task<IEnumerable<CountryDto>> GetAll();
         Task<CountryCreateResultDto> Post(CountryCreateDto country);
-        Task<CountryUpdateResultDto> Put(CountryUpdateResultDto country);
+        Task<CountryUpdateResultDto> Put(CountryUpdateDto country);
         Task<bool> Delete(Guid id);
     }
 }
