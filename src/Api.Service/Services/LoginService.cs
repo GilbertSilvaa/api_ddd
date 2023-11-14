@@ -27,7 +27,7 @@ namespace Api.Service.Services
             _configuration = configuration;
         }
 
-        public async Task<object> FindByLogin(LoginDto user)
+        public async Task<object> FindByLogin(LoginDto user) 
         {
             if (user == null || string.IsNullOrWhiteSpace(user.Email)) return new
             {
@@ -82,7 +82,7 @@ namespace Api.Service.Services
             return handler.WriteToken(securityToken);
         }
 
-        private object SuccessObject(
+        private static object SuccessObject(
             DateTime createDate,
             DateTime expirationDate,
             string token,
